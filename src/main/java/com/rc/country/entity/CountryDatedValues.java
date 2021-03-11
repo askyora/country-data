@@ -1,4 +1,4 @@
-package com.rc.county.gdp.entity;
+package com.rc.country.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -11,6 +11,8 @@ import java.util.Date;
 public class CountryDatedValues {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id")
     private Long id;
 
     @Column

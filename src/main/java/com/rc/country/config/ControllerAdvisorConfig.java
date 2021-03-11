@@ -1,6 +1,6 @@
-package com.rc.county.gdp.config;
+package com.rc.country.config;
 
-import com.rc.county.gdp.dto.ApiError;
+import com.rc.country.dto.ApiError;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -49,7 +49,6 @@ public class ControllerAdvisorConfig extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(
                 apiError, new HttpHeaders(), apiError.getStatus());
     }
-
 
     @Override
     protected ResponseEntity<Object> handleMissingServletRequestParameter(

@@ -1,4 +1,4 @@
-package com.rc.county.gdp.dto;
+package com.rc.country.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.rc.county.gdp.service;
+package com.rc.country.service;
 
 public abstract class AbstractDataLoaderService {
 

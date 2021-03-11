@@ -1,4 +1,4 @@
-package com.rc.county.gdp.dto;
+package com.rc.country.dto;
 
 public abstract class AbstractFileData {
 }

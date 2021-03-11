@@ -1,7 +1,6 @@
-package com.rc.county.gdp.rest;
+package com.rc.country.rest;
 
-import com.rc.county.gdp.service.DataLoaderServiceFactory;
-import com.rc.county.gdp.service.DataLoaderServiceFactory;
+import com.rc.country.service.DataLoaderServiceFactory;
 import io.micrometer.core.annotation.Timed;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/file")
@@ -32,8 +32,8 @@ public class BulkUploadController {
             @ApiResponse(responseCode = "409", description = "Data Conflict.", content = @Content)
     })
     @PostMapping(value = "/{type}/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file,
+    public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file,
                                              @PathVariable(value = "type", required = true) String type) throws IOException {
-        return new ResponseEntity<String>(dataLoader.load(file.getInputStream(), type), HttpStatus.OK);
+        return new ResponseEntity<List<?>>(dataLoader.load(file.getInputStream(), type), HttpStatus.OK);
     }
 }

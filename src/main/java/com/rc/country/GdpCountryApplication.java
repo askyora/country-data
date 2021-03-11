@@ -1,4 +1,4 @@
-package com.rc.county.gdp;
+package com.rc.country;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
