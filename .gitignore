@@ -1,4 +1,6 @@
-/gdp-country.iml
+*.iml
+*.DS_Store
 target/**
 data
 .idea
+/country-data.iml

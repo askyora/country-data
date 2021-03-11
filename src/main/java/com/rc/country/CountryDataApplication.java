@@ -2,12 +2,14 @@ package com.rc.country;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-public class GdpCountryApplication {
+@EnableJpaAuditing
+public class CountryDataApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GdpCountryApplication.class, args);
+        SpringApplication.run(CountryDataApplication.class, args);
     }
 
 }

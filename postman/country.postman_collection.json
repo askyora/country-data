@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "d5236280-62cb-40bb-b0de-d758e0d0a69c",
+		"name": "country",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Upload-Country",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/yohan/country-data/src/main/resources/Country code Alpha-2 Alpha-3 conversion dataset - Sheet1.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/file/country/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"file",
+						"country",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload-GDP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/yohan/country-data/src/main/resources/All country GDP Dataset - gdp_csv.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/file/gdp/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"file",
+						"gdp",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GDP-Before-2007",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/yohan/GitHub/country-data/src/main/resources/All country GDP Dataset - gdp_csv.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/data/AFG/GDP/2006",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"data",
+						"AFG",
+						"GDP",
+						"2006"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GDP-After-2016",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/yohan/GitHub/country-data/src/main/resources/All country GDP Dataset - gdp_csv.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/data/AFG/GDP/2017",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"data",
+						"AFG",
+						"GDP",
+						"2017"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GDP Valid - Alpha 3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/yohan/GitHub/country-data/src/main/resources/All country GDP Dataset - gdp_csv.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/data/AFG/GDP/2016",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"data",
+						"AFG",
+						"GDP",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GDP Valid - Alpha 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/yohan/GitHub/country-data/src/main/resources/All country GDP Dataset - gdp_csv.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/data/AF/GDP/2016",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"data",
+						"AF",
+						"GDP",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GDP Valid - Numaric",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/yohan/GitHub/country-data/src/main/resources/All country GDP Dataset - gdp_csv.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/data/4/GDP/2016",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"data",
+						"4",
+						"GDP",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GDP Invalid",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/yohan/GitHub/country-data/src/main/resources/All country GDP Dataset - gdp_csv.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/data/XXX/GDP/2015",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"data",
+						"XXX",
+						"GDP",
+						"2015"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

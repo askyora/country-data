@@ -1,17 +1,17 @@
 package com.rc.country.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
 @Data
-public class Country {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
-    private Long id;
+@JsonIgnoreProperties("createdDate,lastModifiedDate")
+public class Country extends BaseObject {
 
     private String name;
 
@@ -20,5 +20,5 @@ public class Country {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<CountryCodes> codesList;
+    private List<CountryCode> codesList;
 }
