@@ -39,7 +39,7 @@ public class DataLoaderServiceFactory {
                 .map(current -> {
                     if (existingSet.contains(current)) {
                         throw new HttpClientErrorException(HttpStatus.CONFLICT,
-                                String.format("[Alpha 2 Code : %s] [{%s}] Conflicting another with a prior row.", current.getAlphaTwoCode(),
+                                String.format("[Alpha 3 Code : %s] [{%s}] Conflicting another with a prior row.", current.getAlphaThreeCode(),
                                         current.toString()));
                     }
                     existingSet.add(current);

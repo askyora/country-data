@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.rt.country</groupId>
-	<artifactId>gdp-country</artifactId>
+	<artifactId>country-data</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gdp-country</name>
 	<description>gdp-country rest api</description>
