@@ -31,23 +31,21 @@ public class GdpLoader extends AbstractDataLoader<CountryDatedValue, GdpDTO> {
     private CountryDatedValueDAO datedValueDao;
 
     private CountryDAO countryDAO;
-
-    @Autowired
-    public GdpLoader(CountryDatedValueDAO datedValueDao,CountryDAO countryDAO){
-        this.datedValueDao=datedValueDao;
-        this.countryDAO=countryDAO;
-    }
-
     @Value("${GdpLoader.Year.min:2007}")
     private int yearMin = 2007;
-
     @Value("${GdpLoader.Year.max:2016}")
     private int yearMax = 2016;
 
+    @Autowired
+    public GdpLoader(CountryDatedValueDAO datedValueDao, CountryDAO countryDAO) {
+        this.datedValueDao = datedValueDao;
+        this.countryDAO = countryDAO;
+    }
+
     @Override
     protected Predicate<GdpDTO> predicates() {
-        return p -> p != null && (DateUtil.getDateByYear(p.getYear()).compareTo(DateUtil.getDateByYear(getYearMin())) >= 0
-                && DateUtil.getDateByYear(p.getYear()).compareTo(DateUtil.getDateByYear(getYearMax())) <= 0);
+        return p -> p != null && (p.getYear() >= getYearMin()
+                && p.getYear() <= getYearMax());
     }
 
     @Override

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-@EqualsAndHashCode(of = {"country","countryCode","year"})
+@EqualsAndHashCode(of = {"country", "countryCode", "year"})
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
