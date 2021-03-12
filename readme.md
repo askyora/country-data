@@ -5,10 +5,10 @@
 * Data validated in fail-fast way so before it saved to the database it will be validated for unsupported and empty values and duplicates.
 * Hibernate is used for achieve a database independence.
 * Exceptions managed in controller advice class.
-* to run the program prerequisites - {java 11 , Maven latest}
-compile the program. 
+* System prerequisites - {java 11 , Maven latest}
+###### compile the program. 
   `$ mvn clean install`
-## to run. 
+###### to run. 
   `$ mvn spring-boot:run`
 
 * local swagger url : http://localhost:8080/swagger-ui.html
