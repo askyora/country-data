@@ -25,9 +25,6 @@ public class DataController {
     @Autowired
     private CountryDatedValueDAO datedValueDAO;
 
-    @Autowired
-    private DateUtil dateUtil;
-
     @Operation(summary = "Data Retriever")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Get Country Values", content = {
@@ -43,7 +40,7 @@ public class DataController {
     ) {
 
         Optional<CountryDatedValue> optional = datedValueDAO.findByCode
-                (countryCode, CountryValueTypes.valueOf(type.toUpperCase()), dateUtil.getDateByYear(year));
+                (countryCode, CountryValueTypes.valueOf(type.toUpperCase()), DateUtil.getDateByYear(year));
 
         if (optional.isPresent()) {
             return ResponseEntity.ok(optional.get().getValue().toString());

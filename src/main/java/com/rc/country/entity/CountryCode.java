@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import javax.persistence.*;
         @Index(name = "type_code_index", columnList = "type,code", unique = false),
         @Index(name = "country_code_types_index", columnList = "type,code,country_id", unique = true)
 })
+@EqualsAndHashCode(of = {"type", "code", "country"})
 @JsonIgnoreProperties("country,createdDate,lastModifiedDate")
 public class CountryCode extends BaseObject {
 

@@ -30,21 +30,20 @@ public abstract class AbstractDataLoader<T extends BaseObject, R> {
                 (reader)
                 .withType(getGenericTypeClass(1))
                 .build()
-                .stream()
+                .stream().filter(predicates())
                 .map(current -> {
                     if (existingSet.contains(current)) {
                         throw new HttpClientErrorException(HttpStatus.CONFLICT,
-                                String.format("[Alpha 3 Code : %s] [{%s}] Conflicting another with a prior row.", current.toString(),
-                                        current.toString()));
+                                String.format("[Record : %s] Conflicting with another row.", current.toString()));
                     }
                     existingSet.add(current);
                     return current;
-                }).map(this::map).filter(predicates()).collect(Collectors.toList());
+                }).map(this::map).collect(Collectors.toList());
 
         return save(listOfCountries);
     }
 
-    protected abstract Predicate<T> predicates();
+    protected abstract Predicate<R> predicates();
 
 
     @SneakyThrows

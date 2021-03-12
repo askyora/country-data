@@ -7,6 +7,7 @@ import com.rc.country.entity.Country;
 import com.rc.country.entity.CountryDatedValue;
 import com.rc.country.entity.CountryValueTypes;
 import com.rc.country.util.DateUtil;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,16 +22,22 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 @Service
+@Data
 @Slf4j
 public class GdpLoader extends AbstractDataLoader<CountryDatedValue, GdpDTO> {
 
     public static final String GDP = "gdp";
-    @Autowired
-    DateUtil dateUtil;
-    @Autowired
+
     private CountryDatedValueDAO datedValueDao;
-    @Autowired
+
     private CountryDAO countryDAO;
+
+    @Autowired
+    public GdpLoader(CountryDatedValueDAO datedValueDao,CountryDAO countryDAO){
+        this.datedValueDao=datedValueDao;
+        this.countryDAO=countryDAO;
+    }
+
     @Value("${GdpLoader.Year.min:2007}")
     private int yearMin = 2007;
 
@@ -38,9 +45,9 @@ public class GdpLoader extends AbstractDataLoader<CountryDatedValue, GdpDTO> {
     private int yearMax = 2016;
 
     @Override
-    protected Predicate<CountryDatedValue> predicates() {
-        return p -> p != null && (p.getTimeStamp().compareTo(dateUtil.getDateByYear(yearMin)) >= 0
-                && p.getTimeStamp().compareTo(dateUtil.getDateByYear(yearMax)) <= 0);
+    protected Predicate<GdpDTO> predicates() {
+        return p -> p != null && (DateUtil.getDateByYear(p.getYear()).compareTo(DateUtil.getDateByYear(getYearMin())) >= 0
+                && DateUtil.getDateByYear(p.getYear()).compareTo(DateUtil.getDateByYear(getYearMax())) <= 0);
     }
 
     @Override
@@ -51,7 +58,8 @@ public class GdpLoader extends AbstractDataLoader<CountryDatedValue, GdpDTO> {
 
         if (!countryOptional.isPresent()) {
             log.error("Country Code Not Found : {}", dto.getCountryCode());
-            return null;
+            throw new HttpClientErrorException(HttpStatus.NOT_FOUND, String.format("Country Code : {%s}  Not Found.",
+                    dto.toString()));
         }
 
         if (!countryOptional.get().getName().equalsIgnoreCase(dto.getCountry())) {
@@ -59,7 +67,7 @@ public class GdpLoader extends AbstractDataLoader<CountryDatedValue, GdpDTO> {
         }
 
         Optional<CountryDatedValue> datedValue = datedValueDao.findByCountryAndTypeAndYear(countryOptional.get().getId(), CountryValueTypes.GDP
-                , dateUtil.getDateByYear(dto.getYear()));
+                , DateUtil.getDateByYear(dto.getYear()));
 
         datedValue.ifPresent(i -> {
             log.error(" Id : {}  Conflicting With Existing values. [ {} ]", dto.toString(), dto);
@@ -68,7 +76,7 @@ public class GdpLoader extends AbstractDataLoader<CountryDatedValue, GdpDTO> {
         });
 
         return datedValue.orElseGet(() ->
-                createNew(dto, countryOptional.get(), dateUtil.getDateByYear(dto.getYear())));
+                createNew(dto, countryOptional.get(), DateUtil.getDateByYear(dto.getYear())));
 
     }
 

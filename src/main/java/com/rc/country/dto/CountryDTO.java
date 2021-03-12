@@ -3,8 +3,9 @@ package com.rc.country.dto;
 import com.opencsv.bean.CsvBindByName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
+@EqualsAndHashCode
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

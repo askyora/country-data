@@ -11,8 +11,8 @@
 	<groupId>com.rt.country</groupId>
 	<artifactId>country-data</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gdp-country</name>
-	<description>gdp-country rest api</description>
+	<name>country-data</name>
+	<description>country data rest api</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2020.0.1</spring-cloud.version>

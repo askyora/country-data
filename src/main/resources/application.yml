@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     initialization-mode: always
-    url: jdbc:h2:file:/tmp/data
+    url: jdbc:h2:file:./data/data
     driverClassName: org.h2.Driver
     username: sa
     password: sa

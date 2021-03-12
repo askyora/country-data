@@ -23,21 +23,24 @@ import java.util.function.Predicate;
 @Service
 public class CountryFileLoader extends AbstractDataLoader<Country, CountryDTO> {
 
-
     public static final String COUNTRY = "country";
 
+    private final CountryDAO countryDAO;
+
     @Autowired
-    private CountryDAO dao;
+    public CountryFileLoader(CountryDAO countryDAO) {
+        this.countryDAO = countryDAO;
+    }
 
     @Override
-    protected Predicate<Country> predicates() {
+    protected Predicate<CountryDTO> predicates() {
         return Objects::nonNull;
     }
 
     @Override
     public Country map(@Valid CountryDTO dto) {
 
-        Optional<Country> orderEntityOptional = dao
+        Optional<Country> orderEntityOptional = countryDAO
                 .findByName(dto.getCountry());
 
         orderEntityOptional.ifPresent(i -> {
@@ -56,7 +59,7 @@ public class CountryFileLoader extends AbstractDataLoader<Country, CountryDTO> {
 
     @Override
     public List<Country> save(@Valid List<Country> list) {
-        return dao.saveAll(list);
+        return countryDAO.saveAll(list);
     }
 
 
