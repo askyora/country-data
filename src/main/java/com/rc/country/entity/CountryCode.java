@@ -14,8 +14,9 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(indexes = {
-        @Index(name = "type_code_index", columnList = "type,code", unique = false),
-        @Index(name = "country_code_types_index", columnList = "type,code,country_id", unique = true)
+        @Index(name = "type_code_index", columnList = "type,code", unique = true),
+        @Index(name = "country_code_types_index", columnList = "type,code,country_id", unique = true),
+        @Index(name = "country_code_index", columnList = "code", unique = false)
 })
 @EqualsAndHashCode(of = {"type", "code", "country"})
 @JsonIgnoreProperties("country,createdDate,lastModifiedDate")

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 @RestController
@@ -33,7 +34,7 @@ public class DataController {
             @ApiResponse(responseCode = "400", description = "Bad Request.", content = @Content)
     })
     @GetMapping(value = "/{country-code}/{value-type}/{year}")
-    public ResponseEntity<String> getValueData(
+    public ResponseEntity<BigDecimal> getValueData(
             @PathVariable(value = "country-code", required = true) String countryCode,
             @PathVariable(value = "value-type", required = true) String type,
             @PathVariable(value = "year", required = true) int year
@@ -43,7 +44,7 @@ public class DataController {
                 (countryCode, CountryValueTypes.valueOf(type.toUpperCase()), DateUtil.getDateByYear(year));
 
         if (optional.isPresent()) {
-            return ResponseEntity.ok(optional.get().getValue().toString());
+            return ResponseEntity.ok(optional.get().getValue());
         }
         return ResponseEntity.notFound().build();
     }
