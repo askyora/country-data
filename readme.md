@@ -14,6 +14,8 @@ Date   : 2021/03/12 04:30 PM Submitted to Root Code Labs.
   `$ mvn clean install`
 ###### to run. 
   `$ mvn spring-boot:run`
+###### CURL with
+  `$ country-data % curl -w "@curl-format.txt" --location --request GET 'http://localhost:8080/data/AUS/GDP/2016'`
 
 * local swagger url : http://localhost:8080/swagger-ui.html
 
