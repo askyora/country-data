@@ -10,7 +10,10 @@ jobs:
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
-      - image: cimg/openjdk:11.0
+      - image: circleci/cci-demo-docker-primary:0.0.1
+        auth:
+          username: DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
     steps:
       # Checkout the code as the first step.
       - checkout
