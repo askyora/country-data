@@ -34,8 +34,8 @@ jobs:
       # build and push Docker image
     - run: |
         TAG=0.1.$CIRCLE_BUILD_NUM
-        docker build -t yohanshanaka81/common:country-data-11-cicd-$TAG .
-        docker push yohanshanaka81/common:country-data-11-cicd-$TAG
+        docker build -t yohanshanaka81/common:country-data-11-$TAG .
+        docker push yohanshanaka81/common:country-data-11-$TAG
 
 workflows:
   # Below is the definition of your workflow.
