@@ -22,6 +22,12 @@ jobs:
       - run:
           name: Test
           command: mvn test
+      - run:
+          name: docker-build
+          command: docker build -t yohanshanaka81/common:country-data-11-cicd .
+      - run:
+          name: docker-push
+          command: docker push yohanshanaka81/common:country-data-11-cicd 
 
 workflows:
   # Below is the definition of your workflow.
