@@ -35,7 +35,6 @@ jobs:
     - run: |
         TAG=0.1.$CIRCLE_BUILD_NUM
         docker build -t yohanshanaka81/common:country-data-11-cicd-$TAG .
-        docker login -u $DOCKER_USER --password $DOCKERHUB_PASSWORD
         docker push yohanshanaka81/common:country-data-11-cicd-$TAG
 
 workflows:
