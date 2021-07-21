@@ -16,7 +16,7 @@ jobs:
           username: $DOCKERHUB_LOGIN
           password: $DOCKERHUB_PASSWORD
     steps:
-    
+    - checkout
     - run:
           name: Build
           command: mvn -B -DskipTests clean package
@@ -24,7 +24,7 @@ jobs:
     - run:
           name: Test
           command: mvn test  
-    - checkout
+
       # ... steps for building/testing app ...
 
     - setup_remote_docker:
