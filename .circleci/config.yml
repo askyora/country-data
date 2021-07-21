@@ -4,33 +4,39 @@ version: 2.1
 
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
-  build-and-test:  
+  
+  build-and-test:
     # These next lines define a Docker executor: https://circleci.com/docs/2.0/executor-types/
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
-      - image: circleci/cci-demo-docker-primary:0.0.1
+      - image: yohanshanaka81/common:country-data-11-cicd
         auth:
-          username: DOCKERHUB_LOGIN
+          username: $DOCKERHUB_LOGIN
           password: $DOCKERHUB_PASSWORD
     steps:
-      # Checkout the code as the first step.
-      - checkout
-      # Use mvn clean and package as the standard maven build phase
-      - run:
+    
+    - run:
           name: Build
           command: mvn -B -DskipTests clean package
       # Then run your tests!
-      - run:
+    - run:
           name: Test
-          command: mvn test
-      - run:
-          name: docker-build
-          command: sudo docker build -t yohanshanaka81/common:country-data-11-cicd .
-      - run:
-          name: docker-push
-          command: sudo docker push yohanshanaka81/common:country-data-11-cicd 
+          command: mvn test  
+    - checkout
+      # ... steps for building/testing app ...
+
+    - setup_remote_docker:
+          version: 19.03.13
+          docker_layer_caching: true
+
+      # build and push Docker image
+    - run: |
+        TAG=0.1.$CIRCLE_BUILD_NUM
+        docker build -t yohanshanaka81/common:country-data-11-cicd-$TAG .
+        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+        docker push yohanshanaka81/common:country-data-11-cicd-$TAG
 
 workflows:
   # Below is the definition of your workflow.
