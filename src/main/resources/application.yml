@@ -2,11 +2,10 @@ server:
   port: 8080
 spring:
   datasource:
-    initialization-mode: always
-    url: jdbc:h2:file:./data/data
-    driverClassName: org.h2.Driver
-    username: sa
-    password: sa
+    url: jdbc:mysql://terraform-20210402100357332300000001.ceqaudjowbyp.ap-southeast-1.rds.amazonaws.com:3306/country_data
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: ${PWD}
   jpa:
     generate-ddl: true
     hibernate:
