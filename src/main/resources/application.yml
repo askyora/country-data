@@ -5,9 +5,9 @@ spring:
     url: jdbc:mysql://terraform-20210402100357332300000001.ceqaudjowbyp.ap-southeast-1.rds.amazonaws.com:3306/country_data
     driverClassName: com.mysql.cj.jdbc.Driver
     username: admin
-    password: ${PWD:9b4ef17157ab4e2a}
+    password: "9b4ef17157ab4e2a"
   jpa:
-    generate-ddl: true
+    generate-ddl: false
     hibernate:
       ddl-auto: create
     database-platform: org.hibernate.dialect.MySQL8Dialect
