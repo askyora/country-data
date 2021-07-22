@@ -7,5 +7,4 @@ VOLUME /tmp
 EXPOSE 8080
 ADD target/*.jar app.jar
 ENV JAVA_OPTS="-noverify -XX:+AlwaysPreTouch"
-ENV PWD=""
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS $PWD -jar /app.jar"]
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -jar /app.jar"]
