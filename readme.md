@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/askyora/country-data/tree/master.svg?style=svg)](https://circleci.com/gh/askyora/country-data/tree/master)
 ## Country data API
 ### Author : R. A. Yohan Shanaka.
 
