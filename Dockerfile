@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:jre-11.0.9.1_1-alpine@sha256:961d26d00378688d5dd6bd4e00859f8fc9faaf33e2bf3cd528db8306e778287f
+FROM yohanshanaka81/jre-base:0.0.1
 WORKDIR /home/tmp
 VOLUME /tmp
 EXPOSE 8080
