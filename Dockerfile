@@ -1,4 +1,4 @@
-FROM yohanshanaka81/jre-base:0.0.1
+FROM askyora/base-jre:11
 WORKDIR /home/tmp
 VOLUME /tmp
 EXPOSE 8080
