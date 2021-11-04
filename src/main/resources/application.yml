@@ -1,11 +1,19 @@
 server:
   port: 8080
+  tomcat:
+    mbeanregistry:
+      enabled: true
 spring:
   datasource:
-    url: jdbc:mysql://terraform-20210402100357332300000001.ceqaudjowbyp.ap-southeast-1.rds.amazonaws.com:3306/country_data
+    url: ${URL}
     driverClassName: com.mysql.cj.jdbc.Driver
-    username: admin
+    username: ${USER}
     password: ${PASSW}
+    hikari:
+      pool-name: country-pool
+      maximum-pool-size: 50
+      max-lifetime: 1800000
+      idle-timeout: 30000
   jpa:
     generate-ddl: true
     hibernate:
@@ -13,7 +21,17 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     properties:
       hibernate:
-        show_sql: true
+        show_sql: false
         use_sql_comments: true
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+  health:
+    show-details: always
+  metrics:
+    tags:
+      application: country-metrics
