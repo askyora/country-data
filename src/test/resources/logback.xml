@@ -15,8 +15,8 @@
         </encoder>
     </appender>
 
-    <logger name="com.rc" level="INFO" />
-    <logger name="com.rc" level="WARN">
+    <logger name="com.yora" level="INFO" />
+    <logger name="com.yora" level="WARN">
         <appender-ref ref="FILE" />
     </logger>
 
