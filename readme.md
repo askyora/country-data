@@ -1,17 +1,11 @@
 [![CircleCI](https://circleci.com/gh/askyora/country-data/tree/main.svg?style=svg)](https://circleci.com/gh/askyora/country-data/tree/main)
 
 ## Country data API
-
-###Setup. 
-
-#####JVM 11
-
+##### JVM 11
 `$ mvn -f jvm-pom.xml -B clean package`
-
 
 ##### Graal VM 
 `$ mvn -f native-pom.xml spring-boot:build-image`
-
 
 ![ER](ER.png)
 
@@ -91,9 +85,5 @@ To create the executable, run the following goal:
 ```
 $ ./mvnw -f native-pom.xml package -Pnative
 ```
-
-Then, you can run the app as follows:
-```
-$ target/my-data
 
 ### Author : R. A. Yohan Shanaka.
