@@ -9,5 +9,6 @@ data
 .settings/org.eclipse.core.resources.prefs
 .project
 .classpath
-/target/
+/target/**
 *.log
+**/.DS_Store
