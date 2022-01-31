@@ -29,9 +29,10 @@ jobs:
         # build and push Docker image
       - run: |
           TAG=0.1.$CIRCLE_BUILD_NUM
-          docker build -t askyora/common:country-data-B-$TAG .
+          mvn -f native-pom.xml spring-boot:build-image
+          docker tag docker.io/library/country-data-native:0.0.1-SNAPSHOT askyora/common:country-data-native-B-$TAG
           echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_LOGIN --password-stdin
-          docker push askyora/common:country-data-B-$TAG
+          docker push askyora/common:country-data-native-B-$TAG
 
 workflows:
   # Below is the definition of your workflow.
