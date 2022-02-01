@@ -73,7 +73,7 @@ $ ./mvnw -f native-pom.xml spring-boot:build-image
 Then, you can run the app like any other container:
 
 ```
-$ docker run --rm -p 8080:8080 my-data:0.0.1-SNAPSHOT
+$ docker run --rm -p 8080:8080 country-data-native:0.0.1-SNAPSHOT
 ```
 
 ### Executable with Native Build Tools
