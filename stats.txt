@@ -6,9 +6,9 @@
 ║ Build Time             ║ 13.037 s         ║   09:03 min      ║   06:31 min.     ║
 ║ Image size             ║  205MB           ║   172MB          ║   154MB          ║
 ║                        ║                  ║                  ║                  ║
-║ Startup time           ║ 16.988 s         ║   0.872 s        ║                  ║
-║ Country Codes Load     ║ 03.060 s         ║  01.228 s        ║                  ║
-║ GDP values Load        ║ 07.931 s         ║  07.035 s        ║                  ║
-║ Rest data retrival     ║ 0.034 - 0.003 s  ║  0.003 - 0.002 s ║                  ║
+║ Startup time           ║ 16.988 s         ║   0.872 s        ║   0.832 s        ║ 
+║ Country Codes Load     ║ 03.060 s         ║  01.228 s        ║   01.112 s       ║
+║ GDP values Load        ║ 07.931 s         ║  07.035 s        ║   06.988 s       ║
+║ Rest data retrival     ║ 0.034 - 0.003 s  ║  0.003 - 0.002 s ║  0.002 - 0.003 s ║
 ║                        ║                  ║                  ║                  ║
 ╚════════════════════════╩══════════════════╩══════════════════╝══════════════════╝
