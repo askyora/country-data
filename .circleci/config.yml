@@ -11,7 +11,7 @@ jobs:
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     docker:
-      - image: cimg/openjdk:11.0
+      - image: askyora/graalvm-build:223-11
         auth:
           username: $DOCKERHUB_LOGIN
           password: $DOCKERHUB_PASSWORD
@@ -29,9 +29,9 @@ jobs:
       # build and push Docker image
     - run: |
         TAG=0.1.$CIRCLE_BUILD_NUM
-        docker build -t askyora/common:country-data-B-$TAG .
+        docker build -t askyora/common:country-data-223-B-$TAG .
         echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_LOGIN --password-stdin
-        docker push askyora/common:country-data-B-$TAG
+        docker push askyora/common:country-data-223-B-$TAG
 
 workflows:
   # Below is the definition of your workflow.
