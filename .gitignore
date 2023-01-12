@@ -10,3 +10,5 @@ data
 .project
 .classpath
 /target/
+docker/.env
+log/tests.log

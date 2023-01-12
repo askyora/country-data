@@ -1,14 +1,9 @@
 server:
-  port: 8080
-  tomcat:
-    mbeanregistry:
-      enabled: true
+  port: 8080  
 spring:
   datasource:
-    url: ${URL}
+    url: jdbc:mysql://db:3306/country_data
     driverClassName: com.mysql.cj.jdbc.Driver
-    username: ${USER}
-    password: ${PASSW}
     hikari:
       pool-name: country-pool
       maximum-pool-size: 50
@@ -25,13 +20,7 @@ spring:
         use_sql_comments: true
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
-management:
-  endpoints:
-    web:
-      exposure:
-        include: prometheus
-  health:
-    show-details: always
-  metrics:
-    tags:
-      application: country-metrics
+logging:
+  level:
+    org.springframework.orm.jpa: INFO
+    org.springframework.transaction: INFO
