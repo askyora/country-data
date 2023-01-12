@@ -54,7 +54,7 @@ $ ./mvnw spring-boot:build-image
 Then, you can run the app like any other container:
 
 ```
-$ docker run --rm -p 8080:8080 graalvm:0.0.1-SNAPSHOT
+$ docker run --rm -p 8080:8080 country-data-native:0.0.1-SNAPSHOTT
 ```
 
 ### Executable with Native Build Tools
