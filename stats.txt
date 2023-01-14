@@ -2,14 +2,14 @@
 ║                        ║ JVM              ║ Spring Native    ║ Spring Native.   ║ GraalVMCE 22.3.0 ║
 ║                        ║ MC OS            ║  graalvm-ce-     ║ graalvm-ce       ║(build 11.0.17+8- ║
 ║                        ║                  ║ java11–22.0.0.2  ║  java11–22.0.0.2 ║ jvmci-22.3-b08)  ║
-║                        ║                  ║  MC OS           ║   	MC OS		  ║ Windows 11 Pro   ║
+║                        ║                  ║  MC OS           ║   	MC OS		      ║ Windows 11 Pro   ║
 ╠════════════════════════╬══════════════════╬══════════════════╬══════════════════╬══════════════════╣
-║ Build Time             ║ 13.037 s         ║   09:03 min      ║   06:31 min.     ║	  05:40 min		 ║
-║ Image size             ║  205MB           ║   172MB          ║   154MB          ║	  137MB		     ║
-║                        ║                  ║                  ║                  ║					 ║
-║ Startup time           ║ 16.988 s         ║   0.872 s        ║   0.832 s        ║   0.549 s	     ║		
-║ Country Codes Load     ║ 03.060 s         ║  01.228 s        ║   01.112 s       ║	  0.655 s	     ║
+║ Build Time             ║ 13.037 s         ║   09:03 min      ║   06:31 min.     ║	  05:40 min		   ║
+║ Image size             ║  205MB           ║   172MB          ║   154MB          ║	  137MB		       ║
+║                        ║                  ║                  ║                  ║					         ║
+║ Startup time           ║ 16.988 s         ║   0.872 s        ║   0.832 s        ║   0.549 s	       ║		
+║ Country Codes Load     ║ 03.060 s         ║  01.228 s        ║   01.112 s       ║	  0.655 s	       ║
 ║ GDP values Load        ║ 07.931 s         ║  07.035 s        ║   06.988 s       ║	  03.303 s	     ║
 ║ Rest data retrieval    ║ 0.034 - 0.003 s  ║  0.003 - 0.002 s ║  0.002 - 0.003 s ║	  0.001-0.002 s	 ║
-║                        ║                  ║                  ║                  ║					 ║
+║                        ║                  ║                  ║                  ║					         ║
 ╚════════════════════════╩══════════════════╩══════════════════╩══════════════════╩══════════════════╝
