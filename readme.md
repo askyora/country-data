@@ -85,5 +85,3 @@ To create the executable, run the following goal:
 ```
 $ ./mvnw -f native-pom.xml package -Pnative
 ```
-
-### Author : R. A. Yohan Shanaka.
